@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile card</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+            font-family:'Poppins', sans-serif;
+            color: white;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #cf7f5f;
+        }
+        .container{
+            width: 400px;
+            height: 500px;
+            background-color: #9A3F3F;
+            box-shadow: 20px 20px 5px rgba(0,0,0,0.2);
+            border-radius: 10px;
+        }
+        .Profile{
+            border-radius: 100px;
+            position: relative;
+            left: 20px;
+            bottom: 90px;
+        }
+        .bg{
+            border-radius: 10px 10px 0px 0px;
+            clip-path:path("M 0,0 L 400,0 L 400,170 L 180,170 A 50,55 0,0,0 10,170 L 0,170 Z");
+        }
+        .name
+        {
+            font-family: 'Poppins',sans-serif;
+            font-weight: 600;
+            position: relative;
+            left: 190px;
+            bottom: 130px;
+        }
+        .profession{
+            position: relative;
+            left: 80px;
+            bottom: 100px;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 400;
+            font-size: larger;
+        }
+        button{
+            padding: 10px 20px 10px 20px;
+            border-radius: 5px;
+            border: 3px solid #E6CFA9;
+            background-color: #9A3F3F;
+            color: #FBF9D1;
+            font-weight: 400;
+        }
+         .box{
+            display: flex;
+            width: 400px;
+            justify-content:center;
+            gap: 10px;
+            position: relative;
+            bottom: 60px;
+         }
+         .icons{
+            display: flex;
+            justify-content: space-evenly;
+            position: relative;
+            bottom: 20px;
+            font-size: x-large;
+         }
+         button:hover{
+            background-color: #E6CFA9;
+            color: #9A3F3F;
+            transition: 0.3s ease;
+         }
+         .icons i:hover{
+            color: #E6CFA9;
+         }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <img src="D:\paintbg.jpg" alt="backgroundImage" class="bg" width="400px" height="170px">
+    <img src="D:\women~2.jpg" alt="women_profile" class="Profile" width="150px">
+    <h2 class="name">Astrid LaRue</h2>
+    <p class="profession">Graphic and Digital Artist</p>
+    <div class="box">
+    <button>Message</button>
+    <button>Following</button>
+    </div>
+    <div class="icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+    </div>
+</body>
+</html>

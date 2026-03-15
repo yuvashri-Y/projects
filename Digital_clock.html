@@ -1,0 +1,194 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital clock</title>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+        .container{
+            height: 100vh;
+            width: 100vw;
+            background: linear-gradient(rgb(27, 24, 167),violet,pink);
+        }
+        .wrap{
+            position: relative;
+            top: 48vh;
+            height: 5vh;
+            width: 16vw;
+            border: solid white 3px ;
+            border-radius: 5px;
+            left: 42vw;
+            text-align: center; 
+            justify-content: center;
+        }
+        h1{
+            position: relative;
+            top: 24vh;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>India time zone</h1>
+       <div class="wrap">
+        <span id="hr">00 : </span>
+        <span id="min">00 : </span>
+        <span id="sec">00 </span>
+        <span id="time">AM</span>
+       </div>
+       
+    </div>
+    <script>
+        function displayTime(){
+        let hr=document.getElementById("hr");
+        let min=document.getElementById("min");
+        let sec=document.getElementById("sec");
+        let t=document.getElementById("time");
+        let date=new Date();
+        hr.innerHTML=addZero(Math.floor(date.getHours()%12))+" : ";
+        min.innerHTML=addZero(date.getMinutes())+" : ";
+        sec.innerHTML=addZero(date.getSeconds())+" ";
+        
+        if(date.getHours()>=12)
+        {
+            t.innerHTML="PM";
+        }
+        else{
+            t.innerHTML="AM";
+        }
+        }
+        function addZero(num)
+        {
+            return (num<10) ? ("0"+num ):num;
+        }
+        hr.style.fontSize="30px";
+        hr.style.fontWeight="bold";
+        min.style.fontSize="30px";
+        min.style.fontWeight="bold";
+        sec.style.fontSize="30px";
+        sec.style.fontWeight="bold";
+        setInterval(displayTime,500)
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Clock</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #1b18a7, violet, pink);
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .clock-container {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 30px 60px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      color: #fff;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #f7f7f7;
+    }
+
+    .time {
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.7), 0 0 40px rgba(255, 255, 255, 0.5);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .time span {
+      display: inline-block;
+      min-width: 60px;
+    }
+
+    @keyframes fadeIn {
+      from { 
+        opacity: 0; transform: translateY(-30px); 
+      }
+      to { 
+        opacity: 1; transform: translateY(0); 
+      }
+    }
+    @media (max-width: 600px) {
+      .clock-container {
+        padding: 20px 40px;
+      }
+      .time {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+      }
+      h1 {
+        font-size: 1.2rem;
+      } 
+    } 
+  </style>
+</head>
+<body>
+  <div class="clock-container">
+    <h1>India Time Zone</h1>
+    <div class="time">
+      <span id="hr">00</span> :
+      <span id="min">00</span> :
+      <span id="sec">00</span>
+      <span id="ampm">AM</span>
+    </div>
+  </div>
+
+  <script>
+    function updateClock() {
+      let date = new Date();
+      let hr = date.getHours();
+      let min = date.getMinutes();
+      let sec = date.getSeconds();
+      let ampm = hr >= 12 ? "PM" : "AM";
+
+      hr = hr % 12;
+      hr = hr ? hr : 12; 
+
+      document.getElementById("hr").textContent = padZero(hr);
+      document.getElementById("min").textContent = padZero(min);
+      document.getElementById("sec").textContent = padZero(sec);
+      document.getElementById("ampm").textContent = ampm;
+    }
+
+    function padZero(num) {
+      return num < 10 ? "0" + num : num;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>

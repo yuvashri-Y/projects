@@ -1,0 +1,143 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colour flipper</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        button{
+            background-color: red;
+            border-width: 5px;
+            width: 10%;
+            height: 50px;
+            left: 45%;
+            top: 25vh;
+            position: relative;
+            font-size: large ;
+        }
+        div{
+            text-align: center;
+            top: 30vh;
+            position: relative;
+        }
+    </style>
+</head>
+<body id="body">
+    <h1>click the button to change the colour</h1>
+    <button id="button">click me</button>
+    <div id="name"></div>
+    
+</body>
+<script>
+    let ele=document.getElementById("button");
+    let bod=document.getElementById("body");
+    let name=document.getElementById("name");
+    ele.addEventListener("click" , (e)=>{
+        let a= Math.floor(Math.random()*255);
+        let b= Math.floor(Math.random()*255);
+        let c= Math.floor(Math.random()*255);
+        let colour=`rgb(${a},${b},${c})`;
+        console.log(a,b,c);
+        bod.style.backgroundColor= colour;
+        name.innerHTML=`<h3>colour code : ${a},${b},${c}</h3>`;
+    });
+    function colour()
+    {
+    }
+</script>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colour Flipper</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.6s ease;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      background: linear-gradient(135deg, #ff4e50, #f9d423);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+
+    #name {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      background: rgba(255,255,255,0.7);
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    #name:hover {
+      background: rgba(255,255,255,0.9);
+    }
+  </style>
+</head>
+<body>
+  <h1>Click the button to change the background colour</h1>
+  <button id="button">Change Colour</button>
+  <div id="name">Colour code: #FFFFFF</div>
+
+  <script>
+    const button = document.getElementById("button");
+    const body = document.body;
+    const nameDiv = document.getElementById("name");
+
+    function getRandomColor() {
+      const randomColor = Math.floor(Math.random()*16777215).toString(16);
+      return "#" + randomColor.padStart(6, '0');
+    }
+
+    button.addEventListener("click", () => {
+      const newColor = getRandomColor();
+      body.style.backgroundColor = newColor;
+      nameDiv.textContent = `Colour code: ${newColor}`;
+    });
+
+    // Click to copy color code
+    nameDiv.addEventListener("click", () => {
+      const code = nameDiv.textContent.replace("Colour code: ", "");
+      navigator.clipboard.writeText(code).then(() => {
+        nameDiv.textContent = `Copied: ${code}`;
+        setTimeout(() => {
+          nameDiv.textContent = `Colour code: ${code}`;
+        }, 1000);
+      });
+    });
+  </script>
+</body>
+</html>
